@@ -72,7 +72,7 @@ export default function Hero() {
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-8">
             <p className="hero-meta hero-line font-mono text-xs tracking-[0.4em] text-ink-muted uppercase">
-              Neural Interface v2.0 — Online
+              Holographic OS v3.0 — Systems Online
             </p>
 
             <h1 className="hero-line mt-6 font-display text-[clamp(2.8rem,12vw,8rem)] leading-[0.9] font-extrabold tracking-tighter">

@@ -35,7 +35,7 @@ export default function Navbar() {
             <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-[var(--color-holo)] opacity-60" />
             <span className="relative inline-flex h-2 w-2 rounded-full bg-[var(--color-holo)]" />
           </span>
-          CG
+          CG / AI
         </a>
 
         <ul className="hidden items-center gap-1 md:flex">
