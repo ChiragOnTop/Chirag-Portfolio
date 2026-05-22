@@ -24,6 +24,16 @@ npm run dev
 npm run build
 ```
 
+## Deploy on Vercel
+
+1. Push this repo to GitHub: `https://github.com/ChiragOnTop/Chirag-Portfolio`
+2. Go to [vercel.com/new](https://vercel.com/new) → Import **Chirag-Portfolio**
+3. Framework: **Vite** (auto-detected)
+4. Build command: `npm run build` · Output: `dist`
+5. Deploy
+
+`vercel.json` is included for SPA routing.
+
 ## Customize
 
 - Content: `src/data/portfolio.js`
