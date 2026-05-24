@@ -168,7 +168,8 @@ export default function Contact() {
                 Direct Frequency
               </p>
               <a
-                href="mailto:hello@chiraggambhir.dev"
+                href="cgambhir777@gmail.com"
+              
                 data-cursor
                 className="mt-4 block font-display text-2xl font-bold transition-colors hover:text-[var(--color-electric)] md:text-3xl"
               >
