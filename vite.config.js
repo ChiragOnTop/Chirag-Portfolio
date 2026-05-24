@@ -4,4 +4,16 @@ import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig({
   plugins: [react(), tailwindcss()],
+  build: {
+    chunkSizeWarningLimit: 900,
+    rollupOptions: {
+      output: {
+        manualChunks(id) {
+          if (id.includes('node_modules/react') || id.includes('node_modules/react-dom')) return 'react'
+          if (id.includes('framer-motion') || id.includes('gsap')) return 'motion'
+          if (id.includes('three') || id.includes('@react-three/fiber') || id.includes('@react-three/drei')) return 'three'
+        },
+      },
+    },
+  },
 })

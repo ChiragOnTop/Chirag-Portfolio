@@ -1,7 +1,6 @@
 export const subtitles = [
   'AI Developer',
   'Full Stack Engineer',
-  'Futuristic Web Designer',
   'Creative Technologist',
   'Experimental Interface Creator',
 ]
@@ -25,12 +24,12 @@ export const techStack = [
   { name: 'CSS', orbit: 2, size: 'md' },
   { name: 'Flutter', orbit: 3, size: 'lg' },
   { name: 'Dart', orbit: 3, size: 'md' },
+  { name: 'Three.js', orbit: 1, size: 'lg' },
   { name: 'AI Systems', orbit: 0, size: 'xl' },
   { name: 'Computer Vision', orbit: 1, size: 'lg' },
   { name: 'WebGL', orbit: 1, size: 'lg' },
-  { name: 'Three.js', orbit: 1, size: 'lg' },
   { name: 'UI/UX', orbit: 3, size: 'lg' },
-  { name: 'Motion Design', orbit: 3, size: 'md' },
+  { name: 'Motion', orbit: 3, size: 'md' },
 ]
 
 export const featuredProjects = [
@@ -40,10 +39,10 @@ export const featuredProjects = [
     tag: 'AI Ecosystem',
     featured: true,
     description:
-      'Real-time data-powered AI ecosystem with intelligent chatbot orchestration, live analytics streams, and a next-gen holographic dashboard interface.',
+      'Real-time cosmic intelligence platform — zodiac-powered AI chatbot, live data streams, and a holographic neural dashboard for next-gen decision systems.',
     tech: ['React', 'Node.js', 'Python', 'LLMs', 'WebSockets'],
     accent: '#00e5ff',
-    highlights: ['Live AI Chat', 'Data Streams', 'Neural Dashboard'],
+    highlights: ['Live AI Chat', 'Zodiac Engine', 'Neural Dashboard'],
   },
   {
     id: 'air-canvas',
@@ -51,10 +50,10 @@ export const featuredProjects = [
     tag: 'Computer Vision Lab',
     featured: true,
     description:
-      'Experimental computer vision interface — hand tracking, gesture recognition, and real-time drawing in air with AI-powered interaction layers.',
+      'Experimental CV laboratory — hand tracking, gesture recognition, neon air-drawing, and AI detection layers in a holographic HUD environment.',
     tech: ['Python', 'OpenCV', 'MediaPipe', 'WebGL'],
     accent: '#8b5cf6',
-    highlights: ['Hand Tracking', 'Gesture Draw', 'CV HUD'],
+    highlights: ['Hand Tracking', 'Gesture Draw', 'CV HUD', 'AI Detect'],
   },
 ]
 
@@ -83,10 +82,10 @@ export const projects = [
   {
     id: 'flutter-pulse',
     title: 'Flutter Pulse',
-    tag: 'Mobile',
+    tag: 'Flutter / Dart',
     year: '2024',
     description:
-      'Cross-platform Flutter & Dart application with real-time sync and glassmorphic UI primitives.',
+      'Cross-platform mobile application with real-time sync and glassmorphic UI primitives.',
     tech: ['Flutter', 'Dart', 'Firebase'],
     accent: '#38bdf8',
   },
@@ -96,7 +95,7 @@ export const projects = [
     tag: 'Backend Systems',
     year: '2024',
     description:
-      'Scalable Node.js microservices architecture with event-driven AI pipeline integrations.',
+      'Scalable Node.js microservices with event-driven AI pipeline integrations.',
     tech: ['Node.js', 'Redis', 'PostgreSQL'],
     accent: '#f59e0b',
   },
@@ -106,9 +105,19 @@ export const projects = [
     tag: 'Creative Code',
     year: '2024',
     description:
-      'Scroll-driven shader landscapes and procedural animation experiments in pure JavaScript.',
+      'Scroll-driven shader landscapes and procedural animation experiments in JavaScript.',
     tech: ['WebGL', 'GSAP', 'Lenis'],
     accent: '#ec4899',
+  },
+  {
+    id: 'holo-web',
+    title: 'Holo Web',
+    tag: '3D Website',
+    year: '2024',
+    description:
+      'Immersive futuristic marketing site with WebGL environments and cinematic transitions.',
+    tech: ['HTML', 'CSS', 'Three.js'],
+    accent: '#00e5ff',
   },
 ]
 
@@ -165,9 +174,9 @@ export const aboutStats = [
 ]
 
 export const socials = [
-  { label: 'GitHub', href: 'https://github.com' },
-  { label: 'LinkedIn', href: 'https://linkedin.com' },
-  { label: 'X', href: 'https://x.com' },
+  { label: 'GitHub', href: 'https://github.com/ChiragOnTop/Chirag-Portfolio' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chiraggambhir' },
+  { label: 'Instagram', href: 'https://www.instagram.com/chiraggambhir_777?igsh=MTh2NHFsbmV2aDB1dg==' },
   { label: 'Email', href: 'mailto:hello@chiraggambhir.dev' },
 ]
 
