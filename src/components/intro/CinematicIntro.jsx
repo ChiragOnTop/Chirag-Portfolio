@@ -23,29 +23,37 @@ export default function CinematicIntro() {
   const [visible, setVisible] = useState(() => !skipIntro)
   const timers = useRef([])
 
+  // Safely clear all tracked intervals and timeouts
   const clearTimers = () => {
-    timers.current.forEach(clearTimeout)
+    timers.current.forEach((id) => {
+      clearTimeout(id)
+      clearInterval(id)
+    })
     timers.current = []
   }
 
-  const schedule = (fn, ms) => {
-    timers.current.push(setTimeout(fn, ms))
+  // Wrapper to automatically track timeouts
+  const scheduleTimeout = (fn, ms) => {
+    const id = setTimeout(fn, ms)
+    timers.current.push(id)
+    return id
   }
 
   useEffect(() => {
     if (skipIntro) return
 
-    schedule(() => setPhase(PHASES.ZOOM), 3500)
-    schedule(() => setPhase(PHASES.EARTH), 6500)
-    schedule(() => setPhase(PHASES.BURST), 9000)
-    schedule(() => setPhase(PHASES.PARTICLES), 9400)
+    scheduleTimeout(() => setPhase(PHASES.ZOOM), 3500)
+    scheduleTimeout(() => setPhase(PHASES.EARTH), 6500)
+    scheduleTimeout(() => setPhase(PHASES.BURST), 9000)
+    scheduleTimeout(() => setPhase(PHASES.PARTICLES), 9400)
 
     return clearTimers
   }, [skipIntro])
 
   const handleParticlesDone = () => {
-    schedule(() => setPhase(PHASES.REVEAL), 400)
-    schedule(() => setPhase(PHASES.BOOT), 2800)
+    // These now get safely added to the mutable timers ref tracking array
+    scheduleTimeout(() => setPhase(PHASES.REVEAL), 400)
+    scheduleTimeout(() => setPhase(PHASES.BOOT), 2800)
   }
 
   useEffect(() => {
@@ -55,17 +63,24 @@ export default function CinematicIntro() {
       setBootIndex((i) => {
         if (i >= bootLines.length - 1) {
           clearInterval(interval)
-          schedule(() => {
+          
+          // Fixed: Use safe tracking helper instead of closing over old functions
+          scheduleTimeout(() => {
             setVisible(false)
             completeIntro()
           }, 600)
+          
           return i
         }
         return i + 1
       })
     }, 450)
 
-    return () => clearInterval(interval)
+    timers.current.push(interval)
+
+    return () => {
+      clearInterval(interval)
+    }
   }, [phase, completeIntro])
 
   const handleSkip = () => {
