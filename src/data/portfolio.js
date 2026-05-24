@@ -175,9 +175,9 @@ export const aboutStats = [
 
 export const socials = [
   { label: 'GitHub', href: 'https://github.com/ChiragOnTop/Chirag-Portfolio' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chiraggambhir' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chirag-gambhir-b306b6388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
   { label: 'Instagram', href: 'https://www.instagram.com/chiraggambhir_777?igsh=MTh2NHFsbmV2aDB1dg==' },
-  { label: 'Email', href: 'mailto:hello@chiraggambhir.dev' },
+  { label: 'Email', href: 'cgambhir777@gmail.com' },
 ]
 
 export const bootLines = [
