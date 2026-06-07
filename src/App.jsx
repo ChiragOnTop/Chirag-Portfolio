@@ -1,22 +1,21 @@
 import { useState, useEffect } from 'react'
 import { useIntro, IntroProvider } from './context/IntroContext'
 import { useActiveSection } from './hooks/useActiveSection'
+import { ToastProvider } from './context/ToastContext'
+import ErrorBoundary from './components/global/ErrorBoundary'
+import AccessibilityEnhancer from './components/global/AccessibilityEnhancer'
 import SmoothScroll from './components/layout/SmoothScroll'
 import Navbar from './components/layout/Navbar'
 import Footer from './components/layout/Footer'
 import CustomCursor from './components/ui/CustomCursor'
 import GlobalAmbience from './components/global/GlobalAmbience'
-import LoadingScreen from './components/global/LoadingScreen'
-import CinematicIntro from './components/intro/CinematicIntro'
 import Hero from './components/sections/Hero'
 import About from './components/sections/About'
-import Skills from './components/sections/Skills'
-import Projects from './components/sections/Projects'
-import Labs from './components/sections/Labs'
+import { LazySection, SkillsLazy, ProjectsLazy, LabsLazy } from './components/LazySections'
 import Contact from './components/sections/Contact'
 
 const sectionMeta = {
-  hero: 'Chirag Gambhir — Futuristic AI Engineer',
+  hero: 'Chirag Gambhir — AI Developer, Full Stack Engineer',
   about: 'About — Chirag Gambhir',
   skills: 'Skills — Chirag Gambhir',
   projects: 'Projects — Chirag Gambhir',
@@ -25,25 +24,20 @@ const sectionMeta = {
 }
 
 function Portfolio() {
-  const { introComplete } = useIntro()
-  const [bootComplete, setBootComplete] = useState(false)
-  const active = useActiveSection(Object.keys(sectionMeta))
+  const [activeSection] = useActiveSection(Object.keys(sectionMeta))
 
   useEffect(() => {
-    document.title = sectionMeta[active] || sectionMeta.hero
-  }, [active])
+    document.title = sectionMeta[activeSection] || sectionMeta.hero
+  }, [activeSection])
 
   return (
     <>
-      {!bootComplete && <LoadingScreen onComplete={() => setBootComplete(true)} />}
-      {bootComplete && !introComplete && <CinematicIntro />}
-
-      <SmoothScroll enabled={introComplete && bootComplete}>
+      <AccessibilityEnhancer />
+      <a href="#main-content" className="sr-only focus:not-sr-only">Skip to main content</a>
+      <SmoothScroll enabled={true}>
         <CustomCursor />
         <div
-          className={`relative min-h-screen overflow-x-hidden bg-frost text-ink transition-opacity duration-1000 ${
-            introComplete && bootComplete ? 'opacity-100' : 'opacity-0 pointer-events-none'
-          }`}
+          className={`relative min-h-screen overflow-x-hidden bg-frost text-ink transition-opacity duration-500`}
         >
           <GlobalAmbience />
 
@@ -61,12 +55,12 @@ function Portfolio() {
 
           <Navbar />
 
-          <main className="relative z-10">
+          <main id="main-content" className="relative z-10" role="main">
             <Hero />
             <About />
-            <Skills />
-            <Projects />
-            <Labs />
+            <LazySection component={SkillsLazy} />
+            <LazySection component={ProjectsLazy} />
+            <LazySection component={LabsLazy} />
             <Contact />
           </main>
 
@@ -79,8 +73,12 @@ function Portfolio() {
 
 export default function App() {
   return (
-    <IntroProvider>
-      <Portfolio />
-    </IntroProvider>
+    <ErrorBoundary>
+      <IntroProvider>
+        <ToastProvider>
+          <Portfolio />
+        </ToastProvider>
+      </IntroProvider>
+    </ErrorBoundary>
   )
 }

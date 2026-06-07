@@ -40,9 +40,22 @@ export const featuredProjects = [
     featured: true,
     description:
       'Real-time cosmic intelligence platform — zodiac-powered AI chatbot, live data streams, and a holographic neural dashboard for next-gen decision systems.',
-    tech: ['React', 'Node.js', 'Python', 'LLMs', 'WebSockets'],
+    problem:
+      'Users needed an interactive AI assistant with real-time data visualization and an intuitive interface that felt cutting-edge and immersive.',
+    solution:
+      'Built a full-stack AI ecosystem combining React frontend, Node.js WebSocket server, and Python LLM integration with a holographic neural dashboard UI.',
+    keyFeatures: [
+      'Real-time AI chat with streaming responses',
+      'Zodiac-powered personality engine',
+      'Live neural network visualization',
+      'WebSocket data streaming',
+      'Holographic dashboard UI',
+    ],
+    tech: ['React', 'Node.js', 'Python', 'LLMs', 'WebSockets', 'Three.js'],
     accent: '#00e5ff',
     highlights: ['Live AI Chat', 'Zodiac Engine', 'Neural Dashboard'],
+    gitHub: 'https://github.com/ChiragOnTop/Stellar-AI',
+    liveDemo: '#projects',
   },
   {
     id: 'air-canvas',
@@ -51,9 +64,23 @@ export const featuredProjects = [
     featured: true,
     description:
       'Experimental CV laboratory — hand tracking, gesture recognition, neon air-drawing, and AI detection layers in a holographic HUD environment.',
-    tech: ['Python', 'OpenCV', 'MediaPipe', 'WebGL'],
+    problem:
+      'Enable users to draw and interact with their computer using only hand gestures, creating a futuristic, touchless interface for creative expression.',
+    solution:
+      'Integrated MediaPipe for real-time hand tracking, OpenCV for gesture recognition, and WebGL for immersive HUD rendering with neon effects.',
+    keyFeatures: [
+      'Real-time hand tracking',
+      'Gesture recognition engine',
+      'Air-drawing canvas',
+      'AI object detection overlay',
+      'Holographic HUD interface',
+      'Neon trail effects',
+    ],
+    tech: ['Python', 'OpenCV', 'MediaPipe', 'WebGL', 'JavaScript'],
     accent: '#8b5cf6',
     highlights: ['Hand Tracking', 'Gesture Draw', 'CV HUD', 'AI Detect'],
+    gitHub: 'https://github.com/ChiragOnTop/Air-Canvas',
+    liveDemo: '#projects',
   },
 ]
 
@@ -65,9 +92,13 @@ export const projects = [
     year: '2025',
     description:
       'Healing-focused immersive interface with cinematic scroll narratives and ethereal motion systems.',
-    tech: ['React', 'GSAP', 'Tailwind'],
+    problem: 'Create a wellness platform that prioritizes user mental health through immersive design and calming interactions.',
+    solution: 'Built an interactive web experience using GSAP animations and scroll-triggered narratives for a therapeutic user journey.',
+    keyFeatures: ['Scroll narratives', 'Ethereal animations', 'Calming UI', 'Responsive design'],
+    tech: ['React', 'GSAP', 'Tailwind', 'Lenis'],
     accent: '#22d3ee',
-    link: 'https://resonate-healer.lovable.app',
+    gitHub: '#',
+    liveDemo: 'https://resonate-healer.lovable.app',
   },
   {
     id: 'neural-os',
@@ -76,8 +107,13 @@ export const projects = [
     year: '2025',
     description:
       'Futuristic 3D operating environment with spatial window management and AI-native workflows.',
-    tech: ['Three.js', 'R3F', 'TypeScript'],
+    problem: 'Reimagine how developers interact with their environment through a 3D, spatial interface.',
+    solution: 'Developed a Three.js-based 3D workspace with spatial window management and AI integration.',
+    keyFeatures: ['3D spatial interface', 'Window management', 'AI workflows', 'Real-time updates'],
+    tech: ['Three.js', 'R3F', 'TypeScript', 'React'],
     accent: '#7c3aed',
+    gitHub: '#',
+    liveDemo: '#',
   },
   {
     id: 'flutter-pulse',
@@ -86,8 +122,13 @@ export const projects = [
     year: '2024',
     description:
       'Cross-platform mobile application with real-time sync and glassmorphic UI primitives.',
-    tech: ['Flutter', 'Dart', 'Firebase'],
+    problem: 'Build a responsive mobile app that works seamlessly across iOS and Android.',
+    solution: 'Used Flutter and Firebase for real-time data sync with modern glassmorphic UI.',
+    keyFeatures: ['Cross-platform', 'Real-time sync', 'Glassmorphic UI', 'Offline support'],
+    tech: ['Flutter', 'Dart', 'Firebase', 'GetX'],
     accent: '#38bdf8',
+    gitHub: '#',
+    liveDemo: '#',
   },
   {
     id: 'node-nexus',
@@ -96,8 +137,13 @@ export const projects = [
     year: '2024',
     description:
       'Scalable Node.js microservices with event-driven AI pipeline integrations.',
-    tech: ['Node.js', 'Redis', 'PostgreSQL'],
+    problem: 'Create a scalable backend that integrates AI pipelines and real-time events.',
+    solution: 'Built microservices architecture using Node.js, Redis, and event-driven patterns.',
+    keyFeatures: ['Microservices', 'Event-driven', 'AI integration', 'Scalable'],
+    tech: ['Node.js', 'Redis', 'PostgreSQL', 'Express'],
     accent: '#f59e0b',
+    gitHub: '#',
+    liveDemo: '#',
   },
   {
     id: 'prism-drift',
@@ -106,8 +152,13 @@ export const projects = [
     year: '2024',
     description:
       'Scroll-driven shader landscapes and procedural animation experiments in JavaScript.',
-    tech: ['WebGL', 'GSAP', 'Lenis'],
+    problem: 'Explore creative coding and procedural generation in the browser.',
+    solution: 'Used WebGL shaders and GSAP for scroll-driven procedural animations.',
+    keyFeatures: ['WebGL shaders', 'Procedural animation', 'Scroll interaction', 'Custom effects'],
+    tech: ['WebGL', 'GSAP', 'Lenis', 'JavaScript'],
     accent: '#ec4899',
+    gitHub: '#',
+    liveDemo: '#',
   },
   {
     id: 'holo-web',
@@ -116,8 +167,13 @@ export const projects = [
     year: '2024',
     description:
       'Immersive futuristic marketing site with WebGL environments and cinematic transitions.',
-    tech: ['HTML', 'CSS', 'Three.js'],
+    problem: 'Create an engaging marketing site that stands out with immersive 3D experiences.',
+    solution: 'Built interactive WebGL scenes with Three.js and smooth cinematic transitions.',
+    keyFeatures: ['WebGL environments', 'Cinematic transitions', 'Interactive', 'Performance optimized'],
+    tech: ['HTML', 'CSS', 'Three.js', 'JavaScript'],
     accent: '#00e5ff',
+    gitHub: '#',
+    liveDemo: '#',
   },
 ]
 

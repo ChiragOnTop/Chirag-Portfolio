@@ -2,13 +2,16 @@ import { useRef, useState, useEffect } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '../../lib/gsap'
 import { motion, AnimatePresence } from 'framer-motion'
-import HeroScene from '../three/HeroScene'
+import HolographicProfileCard from '../ui/HolographicProfileCard'
+import EarthZoomAnimation from '../intro/EarthZoomAnimation'
 import { subtitles } from '../../data/portfolio'
+import heroImage from '../../assets/hero.png'
 
 export default function Hero() {
   const containerRef = useRef(null)
   const [subtitleIndex, setSubtitleIndex] = useState(0)
   const [coords, setCoords] = useState({ x: 0, y: 0 })
+  const [showZoomAnimation, setShowZoomAnimation] = useState(true)
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -24,8 +27,8 @@ export default function Hero() {
       tl.from('.hero-line', { y: 120, opacity: 0, duration: 1.4, stagger: 0.15 })
         .from('.hero-sub', { y: 40, opacity: 0, duration: 1 }, '-=0.8')
         .from('.hero-cta', { y: 30, opacity: 0, duration: 0.9 }, '-=0.6')
-        .from('.hero-meta', { opacity: 0, duration: 1 }, '-=0.5')
-        .from('.hero-hud', { scale: 0.9, opacity: 0, duration: 1.2, stagger: 0.1 }, '-=0.8')
+        .from('.hero-profile', { scale: 0.9, opacity: 0, duration: 1 }, '-=0.5')
+        .from('.hero-glow-orb', { scale: 0, opacity: 0, duration: 0.8 }, '-=0.3')
 
       gsap.to('.hero-glow-orb', {
         x: 30,
@@ -47,6 +50,10 @@ export default function Hero() {
     setCoords({ x, y })
   }
 
+  if (showZoomAnimation) {
+    return <EarthZoomAnimation onComplete={() => setShowZoomAnimation(false)} />
+  }
+
   return (
     <section
       id="hero"
@@ -54,8 +61,6 @@ export default function Hero() {
       onMouseMove={handleMouseMove}
       className="relative flex min-h-[100dvh] items-center overflow-hidden pt-24 pb-16"
     >
-      <HeroScene />
-
       <div
         className="hero-glow-orb pointer-events-none absolute top-1/4 right-[10%] h-[420px] w-[420px] rounded-full opacity-40"
         style={{
@@ -70,18 +75,20 @@ export default function Hero() {
 
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 md:px-8">
         <div className="grid grid-cols-1 gap-12 lg:grid-cols-12 lg:gap-8">
-          <div className="lg:col-span-8">
-            <p className="hero-meta hero-line font-mono text-xs tracking-[0.4em] text-ink-muted uppercase">
-              Holographic OS v3.0 — Systems Online
+          <div className="lg:col-span-6">
+            <p className="hero-line hero-meta font-mono text-xs tracking-[0.4em] text-ink-muted uppercase">
+              AI Developer Portfolio v4.0 — Welcome
             </p>
 
-            <h1 className="hero-line mt-6 font-display text-[clamp(2.8rem,12vw,8rem)] leading-[0.9] font-extrabold tracking-tighter">
-              <span className="block text-stroke text-ink/90">CHIRAG</span>
-              <span className="hero-title-main holo-text glow-holo block">GAMBHIR</span>
+            <h1 className="hero-line mt-8 font-display text-[clamp(2.5rem,10vw,6rem)] leading-[1] font-extrabold tracking-tighter">
+              <span className="block text-ink/90">Chirag Gambhir</span>
+              <span className="hero-title-main holo-text glow-holo block text-cyan-400">
+                AI Developer
+              </span>
             </h1>
 
             <div className="hero-sub mt-8 flex min-h-[3rem] items-center gap-4">
-              <span className="font-mono text-xs text-[var(--color-holo)]">▸</span>
+              <span className="font-mono text-xs text-cyan-400">▸</span>
               <div className="relative h-8 overflow-hidden">
                 <AnimatePresence mode="wait">
                   <motion.span
@@ -98,83 +105,81 @@ export default function Hero() {
               </div>
             </div>
 
-            <p className="hero-line mt-8 max-w-lg font-mono text-sm leading-relaxed text-ink-muted">
-              Architecting immersive AI-native experiences at the intersection of
-              intelligence, interface, and cinematic motion.
+            <p className="hero-line mt-8 max-w-md font-mono text-sm leading-relaxed text-ink-muted">
+              Building AI-powered products, computer vision systems, and immersive digital experiences. Passionate about turning complex problems into elegant, user-friendly solutions.
             </p>
 
             <div className="hero-cta mt-10 flex flex-wrap gap-4">
-              <a
+              <motion.a
                 href="#projects"
-                data-cursor
-                className="group relative overflow-hidden rounded-full bg-ink px-8 py-4 font-mono text-xs tracking-widest text-frost uppercase"
+                className="relative px-8 py-3 bg-cyan-500/20 border border-cyan-400/50 rounded-full font-mono text-sm font-semibold text-cyan-300 hover:bg-cyan-500/30 transition-all hover:border-cyan-300 focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                role="button"
+                aria-label="View my featured projects and case studies"
+                tabIndex={0}
               >
-                <span className="relative z-10">View Work</span>
-                <span className="absolute inset-0 origin-left scale-x-0 bg-[var(--color-holo)] transition-transform duration-500 group-hover:scale-x-100" />
+                View Projects
+              </motion.a>
+
+              <motion.a
+                href="https://drive.google.com/file/d/1oM4B1G1scXMg93X-Nbu8RF1nx_PMyRYv/view?usp=drive_link"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="relative px-8 py-3 border border-ink/30 rounded-full font-mono text-sm font-semibold text-ink hover:border-cyan-400/50 hover:bg-cyan-400/10 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Download my resume as PDF (opens in new window)"
+                tabIndex={0}
+              >
+                Download Resume
+              </motion.a>
+
+              <motion.a
+                href="#contact"
+                className="relative px-8 py-3 bg-ink text-frost rounded-full font-mono text-sm font-semibold hover:bg-ink/90 transition-all focus:outline-none focus:ring-2 focus:ring-cyan-400/50"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-label="Skip to contact section to send me a message"
+                tabIndex={0}
+              >
+                Get in Touch
+              </motion.a>
+            </div>
+
+            <div className="hero-line mt-12 flex gap-8">
+              <a
+                href="https://github.com/ChiragOnTop"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-ink-muted hover:text-cyan-400 transition-colors"
+              >
+                GitHub
               </a>
               <a
-                href="#labs"
-                data-cursor
-                className="glass rounded-full px-8 py-4 font-mono text-xs tracking-widest text-ink uppercase transition-colors hover:bg-white/50"
+                href="https://www.linkedin.com/in/chiraggambhir"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-ink-muted hover:text-cyan-400 transition-colors"
               >
-                Enter Labs
+                LinkedIn
+              </a>
+              <a
+                href="https://twitter.com/chiraggambhir"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-mono text-xs text-ink-muted hover:text-cyan-400 transition-colors"
+              >
+                Twitter
               </a>
             </div>
           </div>
 
-          <div className="flex flex-col justify-end gap-4 lg:col-span-4">
-            {[
-              { label: 'Systems', value: '12+' },
-              { label: 'Experiments', value: '24' },
-              { label: 'Latency', value: '<16ms' },
-            ].map((stat) => (
-              <motion.div
-                key={stat.label}
-                className="hero-hud glass flex items-center justify-between rounded-xl px-5 py-4"
-                style={{
-                  transform: `translate(${coords.x * -8}px, ${coords.y * -4}px)`,
-                }}
-                whileHover={{ scale: 1.02 }}
-              >
-                <span className="font-mono text-xs tracking-wider text-ink-muted uppercase">
-                  {stat.label}
-                </span>
-                <span className="font-display text-2xl font-bold holo-text">{stat.value}</span>
-              </motion.div>
-            ))}
-
-            <div
-              className="hero-hud glass mt-4 rounded-xl p-5"
-              style={{
-                transform: `translate(${coords.x * 12}px, ${coords.y * 8}px)`,
-              }}
-            >
-              <div className="flex items-center justify-between font-mono text-[10px] tracking-widest text-ink-muted uppercase">
-                <span>Hologram Status</span>
-                <span className="text-[var(--color-holo)]">Active</span>
-              </div>
-              <div className="mt-4 h-1 overflow-hidden rounded-full bg-ink/5">
-                <motion.div
-                  className="h-full rounded-full bg-gradient-to-r from-[var(--color-holo)] to-[var(--color-violet)]"
-                  animate={{ width: ['30%', '85%', '60%', '90%'] }}
-                  transition={{ duration: 6, repeat: Infinity, ease: 'easeInOut' }}
-                />
-              </div>
-            </div>
+          <div className="hero-profile lg:col-span-6 flex items-center justify-center">
+            <HolographicProfileCard imageUrl={heroImage} />
           </div>
         </div>
       </div>
-
-      <motion.div
-        className="absolute bottom-8 left-1/2 z-10 flex -translate-x-1/2 flex-col items-center gap-2"
-        animate={{ y: [0, 8, 0] }}
-        transition={{ duration: 2.5, repeat: Infinity, ease: 'easeInOut' }}
-      >
-        <span className="font-mono text-[10px] tracking-[0.3em] text-ink-muted uppercase">
-          Scroll
-        </span>
-        <div className="h-10 w-px bg-gradient-to-b from-[var(--color-holo)] to-transparent" />
-      </motion.div>
     </section>
   )
 }
