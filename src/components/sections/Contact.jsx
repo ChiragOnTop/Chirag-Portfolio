@@ -1,4 +1,4 @@
-import { useRef, useState, useEffect } from 'react'
+import { useRef, useState } from 'react'
 import { useGSAP } from '@gsap/react'
 import { gsap } from '../../lib/gsap'
 import { motion } from 'framer-motion'
@@ -82,7 +82,7 @@ export default function Contact() {
 
     try {
       const result = await emailjs.send(
-        'service_e08mnm3',
+        'service_8hsirxa',
         'template_y7kj19g',
         {
           to_email: 'cgambhir777@gmail.com',
@@ -102,7 +102,12 @@ export default function Contact() {
         setTimeout(() => setSubmitted(false), 5000)
       }
     } catch (error) {
-      console.error('EmailJS error:', error)
+      console.error('EmailJS error details:', {
+        message: error.message,
+        status: error.status,
+        text: error.text,
+        fullError: error,
+      })
       addToast('Failed to send message. Please try again or email directly.', 'error')
     } finally {
       setLoading(false)

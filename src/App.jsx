@@ -1,5 +1,5 @@
-import { useState, useEffect } from 'react'
-import { useIntro, IntroProvider } from './context/IntroContext'
+import { useEffect } from 'react'
+import { IntroProvider } from './context/IntroContext'
 import { useActiveSection } from './hooks/useActiveSection'
 import { ToastProvider } from './context/ToastContext'
 import ErrorBoundary from './components/global/ErrorBoundary'

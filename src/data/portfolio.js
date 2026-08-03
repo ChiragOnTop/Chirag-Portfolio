@@ -1,3 +1,7 @@
+import airCanvasImage from '../assets/projects/air-canvas.jpg'
+import astroManjuImage from '../assets/projects/astro-manju.jpg'
+import orbitFriendsImage from '../assets/projects/orbit-friends.jpg'
+
 export const subtitles = [
   'AI Developer',
   'Full Stack Engineer',
@@ -54,8 +58,10 @@ export const featuredProjects = [
     tech: ['React', 'Node.js', 'Python', 'LLMs', 'WebSockets', 'Three.js'],
     accent: '#00e5ff',
     highlights: ['Live AI Chat', 'Zodiac Engine', 'Neural Dashboard'],
-    gitHub: 'https://github.com/ChiragOnTop/Stellar-AI',
-    liveDemo: '#projects',
+    gitHub: '',
+    liveDemo: '',
+    screenshot: astroManjuImage,
+    screenshotAlt: 'Astro Manju celestial guidance interface screenshot',
   },
   {
     id: 'air-canvas',
@@ -79,8 +85,10 @@ export const featuredProjects = [
     tech: ['Python', 'OpenCV', 'MediaPipe', 'WebGL', 'JavaScript'],
     accent: '#8b5cf6',
     highlights: ['Hand Tracking', 'Gesture Draw', 'CV HUD', 'AI Detect'],
-    gitHub: 'https://github.com/ChiragOnTop/Air-Canvas',
-    liveDemo: '#projects',
+    gitHub: '',
+    liveDemo: '',
+    screenshot: airCanvasImage,
+    screenshotAlt: 'Air Canvas mobile drawing interface screenshot',
   },
 ]
 
@@ -97,8 +105,10 @@ export const projects = [
     keyFeatures: ['Scroll narratives', 'Ethereal animations', 'Calming UI', 'Responsive design'],
     tech: ['React', 'GSAP', 'Tailwind', 'Lenis'],
     accent: '#22d3ee',
-    gitHub: '#',
-    liveDemo: 'https://resonate-healer.lovable.app',
+    gitHub: '',
+    liveDemo: '',
+    screenshot: orbitFriendsImage,
+    screenshotAlt: 'Dark futuristic orbit interface screenshot',
   },
   {
     id: 'neural-os',
@@ -112,8 +122,8 @@ export const projects = [
     keyFeatures: ['3D spatial interface', 'Window management', 'AI workflows', 'Real-time updates'],
     tech: ['Three.js', 'R3F', 'TypeScript', 'React'],
     accent: '#7c3aed',
-    gitHub: '#',
-    liveDemo: '#',
+    gitHub: '',
+    liveDemo: '',
   },
   {
     id: 'flutter-pulse',
@@ -127,8 +137,8 @@ export const projects = [
     keyFeatures: ['Cross-platform', 'Real-time sync', 'Glassmorphic UI', 'Offline support'],
     tech: ['Flutter', 'Dart', 'Firebase', 'GetX'],
     accent: '#38bdf8',
-    gitHub: '#',
-    liveDemo: '#',
+    gitHub: '',
+    liveDemo: '',
   },
   {
     id: 'node-nexus',
@@ -142,8 +152,8 @@ export const projects = [
     keyFeatures: ['Microservices', 'Event-driven', 'AI integration', 'Scalable'],
     tech: ['Node.js', 'Redis', 'PostgreSQL', 'Express'],
     accent: '#f59e0b',
-    gitHub: '#',
-    liveDemo: '#',
+    gitHub: '',
+    liveDemo: '',
   },
   {
     id: 'prism-drift',
@@ -157,8 +167,8 @@ export const projects = [
     keyFeatures: ['WebGL shaders', 'Procedural animation', 'Scroll interaction', 'Custom effects'],
     tech: ['WebGL', 'GSAP', 'Lenis', 'JavaScript'],
     accent: '#ec4899',
-    gitHub: '#',
-    liveDemo: '#',
+    gitHub: '',
+    liveDemo: '',
   },
   {
     id: 'holo-web',
@@ -172,8 +182,8 @@ export const projects = [
     keyFeatures: ['WebGL environments', 'Cinematic transitions', 'Interactive', 'Performance optimized'],
     tech: ['HTML', 'CSS', 'Three.js', 'JavaScript'],
     accent: '#00e5ff',
-    gitHub: '#',
-    liveDemo: '#',
+    gitHub: '',
+    liveDemo: '',
   },
 ]
 
@@ -230,10 +240,10 @@ export const aboutStats = [
 ]
 
 export const socials = [
-  { label: 'GitHub', href: 'https://github.com/ChiragOnTop/Chirag-Portfolio' },
-  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chirag-gambhir-b306b6388?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app' },
-  { label: 'Instagram', href: 'https://www.instagram.com/chiraggambhir_777?igsh=MTh2NHFsbmV2aDB1dg==' },
-  { label: 'Email', href: 'cgambhir777@gmail.com' },
+  { label: 'GitHub', href: 'https://github.com/ChiragOnTop' },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/in/chiraggambhir777' },
+  { label: 'Instagram', href: 'https://www.instagram.com/chiraggambhir_777/' },
+  { label: 'Email', href: 'mailto:cgambhir777@gmail.com' },
 ]
 
 export const bootLines = [

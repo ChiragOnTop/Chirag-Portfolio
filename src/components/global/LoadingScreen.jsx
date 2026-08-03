@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const BOOT = [
@@ -12,6 +12,14 @@ export default function LoadingScreen({ onComplete }) {
   const [progress, setProgress] = useState(0)
   const [line, setLine] = useState(0)
   const [done, setDone] = useState(false)
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 24 }, () => ({
+        left: `${Math.random() * 100}%`,
+        top: `${Math.random() * 100}%`,
+      })),
+    [],
+  )
 
   useEffect(() => {
     const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -47,14 +55,11 @@ export default function LoadingScreen({ onComplete }) {
           transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
         >
           <div className="absolute inset-0 overflow-hidden">
-            {[...Array(24)].map((_, i) => (
+            {particles.map((particle, i) => (
               <motion.span
                 key={i}
                 className="absolute h-1 w-1 rounded-full bg-[var(--color-electric)]"
-                style={{
-                  left: `${Math.random() * 100}%`,
-                  top: `${Math.random() * 100}%`,
-                }}
+                style={particle}
                 animate={{ opacity: [0.2, 1, 0.2], scale: [0.5, 1.2, 0.5] }}
                 transition={{ duration: 2, delay: i * 0.08, repeat: Infinity }}
               />

@@ -157,20 +157,12 @@ export default function Hero() {
                 GitHub
               </a>
               <a
-                href="https://www.linkedin.com/in/chiraggambhir"
+                href="https://www.linkedin.com/in/chiraggambhir777"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="font-mono text-xs text-ink-muted hover:text-cyan-400 transition-colors"
               >
                 LinkedIn
-              </a>
-              <a
-                href="https://twitter.com/chiraggambhir"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-mono text-xs text-ink-muted hover:text-cyan-400 transition-colors"
-              >
-                Twitter
               </a>
             </div>
           </div>

@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react'
-import { motion } from 'framer-motion'
 import * as THREE from 'three'
+import { canUseWebGL } from '../../lib/webgl'
 
 export default function EarthZoomAnimation({ onComplete }) {
   const mountRef = useRef(null)
@@ -10,6 +10,10 @@ export default function EarthZoomAnimation({ onComplete }) {
 
   useEffect(() => {
     if (!mountRef.current) return
+    if (!canUseWebGL()) {
+      onComplete?.()
+      return
+    }
 
     // Scene setup
     const scene = new THREE.Scene()
@@ -21,7 +25,13 @@ export default function EarthZoomAnimation({ onComplete }) {
     cameraRef.current = camera
 
     // Renderer
-    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    let renderer
+    try {
+      renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true })
+    } catch {
+      onComplete?.()
+      return
+    }
     renderer.setSize(window.innerWidth, window.innerHeight)
     renderer.setClearColor(0x000000, 0.95)
     rendererRef.current = renderer

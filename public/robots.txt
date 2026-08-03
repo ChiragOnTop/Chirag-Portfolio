@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://chirag-portfolio.vercel.app/sitemap.xml
+Sitemap: https://chirag-gambhir.vercel.app/sitemap.xml

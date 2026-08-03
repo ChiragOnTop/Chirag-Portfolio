@@ -4,6 +4,7 @@ import { Html } from '@react-three/drei'
 import { Canvas } from '@react-three/fiber'
 import * as THREE from 'three'
 import { techStack } from '../../data/portfolio'
+import { canUseWebGL } from '../../lib/webgl'
 
 const ORBIT_RADIUS = [2.2, 3.2, 4.2, 5]
 const ORBIT_SPEED = [0.35, -0.28, 0.22, -0.18]
@@ -113,11 +114,28 @@ function Scene() {
 }
 
 export default function SkillOrbit() {
+  const canRenderOrbit = canUseWebGL()
+
   return (
     <div className="relative mx-auto h-[min(520px,70vh)] w-full max-w-4xl">
-      <Canvas camera={{ position: [0, 2.5, 9], fov: 45 }} dpr={[1, 1.5]} gl={{ alpha: true }}>
-        <Scene />
-      </Canvas>
+      {canRenderOrbit ? (
+        <Canvas camera={{ position: [0, 2.5, 9], fov: 45 }} dpr={[1, 1.5]} gl={{ alpha: true }}>
+          <Scene />
+        </Canvas>
+      ) : (
+        <div className="grid h-full place-items-center">
+          <div className="grid max-w-3xl grid-cols-2 gap-3 sm:grid-cols-4">
+            {techStack.map((tech) => (
+              <span
+                key={tech.name}
+                className="glass rounded-full px-4 py-2 text-center font-mono text-[10px] tracking-widest text-ink-muted uppercase"
+              >
+                {tech.name}
+              </span>
+            ))}
+          </div>
+        </div>
+      )}
       <div className="pointer-events-none absolute bottom-4 left-1/2 -translate-x-1/2 text-center">
         <p className="font-mono text-[10px] tracking-[0.3em] text-ink-muted uppercase">
           Hover nodes to scan capabilities
